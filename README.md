@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/b1fb0a72-8892-4af9-98b9-06d3f36fbbea
+
 # 🔮 Delphi — Self-Improving Multi-Agent Decision Intelligence Platform
 
 Delphi is a state-of-the-art decision intelligence engine that orchestrates multi-agent deliberation to resolve complex enterprise queries. Moving beyond standard single-prompt LLM predictions, Delphi simulates strategic, multi-disciplinary boards using structured adversarial debate, ELO-inspired reputation tracking, and dynamic in-context memory reflection to output explainable, high-trust consensus verdicts.
