@@ -2,13 +2,6 @@
 
 Delphi is a state-of-the-art decision intelligence engine that orchestrates multi-agent deliberation to resolve complex enterprise queries. Moving beyond standard single-prompt LLM predictions, Delphi simulates strategic, multi-disciplinary boards using structured adversarial debate, ELO-inspired reputation tracking, and dynamic in-context memory reflection to output explainable, high-trust consensus verdicts.
 
----
-
-## 🚀 Key Highlights (Resume Quick-Facts)
-* **Architected a 7-stage multi-agent pipeline** dynamically assembling 4–8 specialized expert councils per query using dual-model inference.
-* **Engineered ELO-based reputation engine and reflection loop** injecting up to 5 historical lessons for agent self-improvement.
-* **Evaluated pipeline design across 75 simulated domain scenarios** — improving confidence calibration by +0.25 while maintaining stable 4.66 ELO drift.
-* **Built async FastAPI backend with aiosqlite**, validated across 45 unit and integration tests with isolated in-memory databases.
 
 ---
 
