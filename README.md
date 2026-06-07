@@ -5,6 +5,14 @@ Delphi is a state-of-the-art decision intelligence engine that orchestrates mult
 
 ---
 
+## 🎯 Core Objectives
+* **Multi-Agent Deliberation:** Dynamically assemble specialized expert councils (4–8 agents) tailored to the target domain, resolving queries through multi-disciplinary board simulations.
+* **Explainable Consensus:** Form structured, qualitative and quantitative verdicts (Approve, Reject, or Conditional Approval) backed by explicit confidence calibration.
+* **Continuous In-Context Adaptation:** Implement closed-loop learning where experts dynamically adjust their behaviors using database-seeded reflections from past cases, eliminating the need for model fine-tuning.
+* **Reputation-Weighted Governance:** Enforce a zero-sum, average-relative ELO engine to reward high-performing experts and penalize poorly calibrated recommendations.
+
+---
+
 ## 🏛️ System Architecture
 
 ```mermaid
