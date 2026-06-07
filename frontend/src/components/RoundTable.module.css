@@ -1,0 +1,411 @@
+/* RoundTable.module.css */
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 460px;
+  margin: 0 auto;
+  user-select: none;
+  background: radial-gradient(circle at 50% 58%, rgba(108, 99, 255, 0.05) 0%, transparent 70%);
+}
+
+/* Central Round Table Disk */
+.tableDisk {
+  position: absolute;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(22, 28, 45, 0.95);
+  border: 3px solid rgba(108, 99, 255, 0.22);
+  box-shadow: 
+    inset 0 0 20px rgba(108, 99, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(108, 99, 255, 0.12);
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.5s var(--ease-out-expo);
+  clip-path: polygon(50% 58%, 20% 0%, 0% 0%, 0% 100%, 100% 100%, 100% 0%, 80% 0%);
+}
+
+.tableInnerRing {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+/* Hologram Core in center of the desk */
+.hologramCore {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologramRing {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px dashed rgba(108, 99, 255, 0.45);
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.25);
+  animation: spin 10s linear infinite;
+}
+
+.hologramRingInner {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(245, 200, 66, 0.4);
+  box-shadow: 0 0 10px rgba(245, 200, 66, 0.15);
+  animation: spinReverse 7s linear infinite;
+}
+
+.hologramPulse {
+  position: absolute;
+  width: 45%;
+  height: 45%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(108, 99, 255, 0.35) 0%, transparent 70%);
+  animation: pulseCore 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@keyframes pulseCore {
+  0% { transform: scale(0.85); opacity: 0.4; }
+  100% { transform: scale(1.15); opacity: 0.95; }
+}
+
+/* Pulsing energy in the center of the chamber during debates */
+.chamberPulse {
+  position: absolute;
+  inset: 30%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 200, 66, 0.1) 0%, transparent 70%);
+  animation: centralPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes centralPulse {
+  0% { transform: scale(0.9); opacity: 0.5; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* SVG Overlay for Connections */
+.svgCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Challenge path drawing animation */
+.challengePath {
+  fill: none;
+  stroke: #FBBF24;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 4;
+  animation: challengeFlow 30s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6));
+}
+
+@keyframes challengeFlow {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Base Node (Common styles for Expert and Judge) */
+.expertNode, .judgeNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(13, 17, 30, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  z-index: 3;
+  transition: 
+    transform var(--transition-fast), 
+    border-color var(--transition-fast), 
+    box-shadow var(--transition-fast);
+}
+
+.avatar {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.nodeLabel {
+  position: absolute;
+  bottom: -24px;
+  white-space: nowrap;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: rgba(8, 11, 20, 0.75);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nodeName {
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Node Hover / Active States */
+.expertNode:hover {
+  transform: translate(-50%, -50%) scale(1.12);
+  background: rgba(18, 24, 43, 0.95);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  z-index: 10;
+}
+
+.expertNode:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -120%) scale(1);
+}
+
+/* Speaking glow indicator */
+.speaking {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 0 20px currentColor;
+  z-index: 5;
+}
+
+.speakingAura {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: -1;
+  animation: speakingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes speakingPulse {
+  0% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.1; }
+  100% { transform: scale(1); opacity: 0.3; }
+}
+
+/* Judge Node custom styling */
+.judgeNode {
+  width: 90px;
+  height: 52px;
+  border-radius: 8px;
+  border-color: var(--color-gold);
+  background: rgba(22, 17, 10, 0.9);
+  box-shadow: 0 0 15px rgba(245, 200, 66, 0.2);
+}
+
+.judgeActive {
+  box-shadow: 0 0 25px rgba(245, 200, 66, 0.5);
+  border-color: var(--color-gold);
+}
+
+.judgeNode:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 0 25px rgba(245, 200, 66, 0.4);
+}
+
+.clerkNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 42px;
+  border-radius: 6px;
+  border: 1.5px solid #0d9488;
+  background: rgba(10, 22, 20, 0.9);
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.2);
+  z-index: 3;
+  transition: transform var(--transition-fast);
+}
+
+.clerkNode > div:first-of-type {
+  font-size: 1.3rem; /* slightly smaller avatar */
+}
+
+.clerkNode > div:nth-of-type(2) {
+  font-size: 0.65rem; /* slightly smaller label */
+  bottom: -20px;
+  padding: 1px 6px;
+}
+
+.clerkNode:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 0 12px rgba(13, 148, 136, 0.35);
+}
+
+.clerkActive {
+  box-shadow: 0 0 18px rgba(13, 148, 136, 0.45);
+  border-color: #0d9488;
+}
+
+/* Tooltip overlay styling */
+.tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -105%) scale(0.95);
+  background: rgba(8, 11, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-text);
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  box-shadow: var(--shadow-xl);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 100;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: rgba(8, 11, 20, 0.96) transparent transparent;
+}
+
+/* Ready Indicator check */
+.readyIndicator {
+  color: var(--color-success);
+  font-weight: bold;
+  animation: popReady 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes popReady {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Empty Table Overlay loading dots */
+.emptyTableOverlay {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Speech bubbles/thought clouds */
+.speechBubble {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 145px;
+  background: rgba(10, 14, 26, 0.96);
+  border: 1.5px solid currentColor;
+  border-radius: 8px;
+  padding: 6px 10px;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.55),
+    0 0 10px rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatBubble 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.speechText {
+  font-size: 0.68rem;
+  line-height: 1.32;
+  color: var(--color-text);
+  text-align: center;
+  max-height: 50px;
+  overflow: hidden;
+  white-space: normal;
+  font-family: var(--font-body);
+}
+
+.speechPointer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Directional bubble placement */
+.bubbleAbove {
+  bottom: 120%;
+}
+.bubbleAbove .speechPointer {
+  bottom: -7px;
+  border-width: 7px 7px 0;
+  border-color: currentColor transparent transparent;
+}
+.bubbleAbove .speechPointer::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -7px;
+  border-width: 7px 7px 0;
+  border-style: solid;
+  border-color: rgba(10, 14, 26, 0.96) transparent transparent;
+}
+
+.bubbleBelow {
+  top: 120%;
+}
+.bubbleBelow .speechPointer {
+  top: -7px;
+  border-width: 0 7px 7px;
+  border-color: transparent transparent currentColor;
+}
+.bubbleBelow .speechPointer::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: -7px;
+  border-width: 0 7px 7px;
+  border-style: solid;
+  border-color: transparent transparent rgba(10, 14, 26, 0.96);
+}
+
+@keyframes floatBubble {
+  0% { opacity: 0; transform: translate(-50%, 10px) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}

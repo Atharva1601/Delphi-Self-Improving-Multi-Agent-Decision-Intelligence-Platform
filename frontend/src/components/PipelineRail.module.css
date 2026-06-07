@@ -1,0 +1,112 @@
+/* PipelineRail.module.css */
+.rail {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 11, 20, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-6);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.stageWrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.stageWrap:first-child { flex: none; }
+
+.connector {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border);
+  transition: background var(--transition-slow);
+  margin: 0 var(--space-2);
+}
+
+.connectorActive {
+  background: linear-gradient(90deg, var(--color-indigo), rgba(108,99,255,0.5));
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-border);
+  background: var(--color-bg-2);
+  transition: all var(--transition-base);
+  font-size: 12px;
+}
+
+.nodeDone .dot {
+  background: var(--color-indigo-dim);
+  border-color: var(--color-indigo);
+  color: var(--color-indigo);
+}
+
+.nodeActive .dot {
+  background: var(--color-indigo);
+  border-color: var(--color-indigo);
+  box-shadow: var(--shadow-glow-indigo);
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.nodePending .dot {
+  opacity: 0.35;
+}
+
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.check { color: var(--color-indigo); font-size: 11px; font-weight: 700; }
+
+.label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  transition: color var(--transition-base);
+}
+
+.nodeActive .label { color: var(--color-indigo); }
+.nodeDone .label   { color: var(--color-text-dim); }
+
+@media (max-width: 600px) {
+  .label { display: none; }
+  .dot   { width: 22px; height: 22px; }
+}

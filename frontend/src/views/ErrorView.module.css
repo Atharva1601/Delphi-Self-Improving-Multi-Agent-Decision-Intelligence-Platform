@@ -1,0 +1,39 @@
+/* ErrorView.module.css */
+.wrap {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+}
+
+.card {
+  max-width: 480px;
+  width: 100%;
+  padding: var(--space-10) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+  border-color: rgba(248,113,113,0.3);
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--color-red);
+  filter: drop-shadow(0 0 12px var(--color-red));
+  animation: float 3s ease-in-out infinite;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.message {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin: 0;
+  line-height: 1.6;
+}
