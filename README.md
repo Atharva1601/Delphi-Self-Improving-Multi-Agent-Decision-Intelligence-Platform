@@ -1,6 +1,6 @@
 
 
-https://github.com/user-attachments/assets/b1fb0a72-8892-4af9-98b9-06d3f36fbbea
+
 
 # 🔮 Delphi — Self-Improving Multi-Agent Decision Intelligence Platform
 
@@ -16,7 +16,7 @@ Delphi is a state-of-the-art decision intelligence engine that orchestrates mult
 * **Reputation-Weighted Governance:** Enforce a zero-sum, average-relative ELO engine to reward high-performing experts and penalize poorly calibrated recommendations.
 
 ---
-
+https://github.com/user-attachments/assets/b1fb0a72-8892-4af9-98b9-06d3f36fbbea
 ## 🏛️ System Architecture
 
 ```mermaid
